@@ -1,0 +1,18 @@
+#
+mpif77 -O3 -finit-local-zero -mcmodel=medium -fbounds-check -o mat mat.f
+./mat
+#
+mpif77 -O3 -finit-local-zero -mcmodel=medium -fbounds-check -o scan2_1_new scan2_1_new.f
+mpirun --oversubscribe -np 4 ./scan2_1_new
+#------------------------------------------------------------------
+mpif77 -O3 -finit-local-zero -mcmodel=medium -fbounds-check -o scan2_1_new_inver scan2_1_new_inver.f
+mpirun --oversubscribe -np 4 ./scan2_1_new_inver
+#------------------------------------------------------------------
+mpif77 -O3 -finit-local-zero -fbounds-check -o uni1 uni1.f
+./uni1
+#
+mpif77 -O3 -finit-local-zero -mcmodel=medium -fbounds-check -o nnn nnn.f
+./nnn
+rm *.200
+
+
